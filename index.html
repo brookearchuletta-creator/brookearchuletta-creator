@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FlockBlock.Pro — License Plate Privacy Opt-Out</title>
+<meta name="description" content="Opt your license plate out of Flock Safety surveillance in 60 seconds. We write the CCPA deletion request. You send it. Zero data stored — ever.">
+<meta property="og:title" content="FlockBlock.Pro — Opt Out of License Plate Surveillance">
+<meta property="og:description" content="One-tap Flock Safety opt-out. CCPA-compliant. Zero data stored.">
+<meta property="og:url" content="https://flockblock.pro">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://flockblock.pro">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230a1628'/><text y='.9em' font-size='78' x='10'>🛡️</text></svg>">
+
+<!-- ══════════════════════════════════════════════════
+     ANALYTICS — REPLACE PLACEHOLDER IDs BEFORE LAUNCH
+     ══════════════════════════════════════════════════
+     1. Get GA4 Measurement ID at analytics.google.com
+        → Create Account → Create Property → Web Stream
+        Replace G-XXXXXXXXXX below with your real ID
+
+     2. Get Clarity Project ID at clarity.microsoft.com
+        → Create New Project → Get ID from snippet
+        Replace CLARITY_PROJECT_ID below with your real ID
+     ══════════════════════════════════════════════════ -->
+
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+
+<!-- Microsoft Clarity (FREE session recordings + heatmaps — shows exactly where users drop off) -->
+<script type="text/javascript">
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#040810;--bg2:#060c18;--s1:#0a1424;--s2:#0e1c34;--s3:#122040;
+  --b1:#152848;--b2:#1d3660;
+  --accent:#1a6bff;--accent2:#3d8bff;
+  --aglow:rgba(26,107,255,.18);--adim:rgba(26,107,255,.10);
+  --green:#18e070;--gdim:rgba(24,224,112,.09);
+  --amber:#f0a500;--red:#ff4444;--paypal:#009cde;
+  --t1:#d4e4ff;--t2:#8aaad4;--t3:#4a6690;
+  --r:12px;--rl:18px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--t1);
+  min-height:100vh;padding:28px 16px 80px;
+  background-image:
+    radial-gradient(ellipse 90% 45% at 65% -5%,rgba(26,107,255,.09) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 35% at -5% 85%,rgba(26,107,255,.06) 0%,transparent 50%);
+}
+.wrap{max-width:468px;margin:0 auto}
+
+/* Logo */
+.logo-wrap{display:flex;justify-content:center;margin:0 0 22px}
+.logo-svg{
+  width:116px;height:116px;border-radius:24px;
+  background:linear-gradient(145deg,#0a1e3d,#0d2545);
+  border:1px solid var(--b2);display:flex;align-items:center;justify-content:center;
+  font-size:56px;box-shadow:0 16px 48px rgba(0,0,0,.7),0 0 80px var(--aglow);
+}
+
+/* Hero */
+.hero{text-align:center;margin-bottom:22px}
+.hero h1{
+  font-family:'Barlow Condensed',sans-serif;font-size:38px;font-weight:900;
+  line-height:1.05;letter-spacing:-.5px;margin-bottom:12px;
+  background:linear-gradient(140deg,#e0efff 0%,#6aaaff 55%,#3d8bff 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero p{font-size:14.5px;color:var(--t2);line-height:1.72;max-width:360px;margin:0 auto}
+
+/* Badges */
+.badges{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.badge{display:inline-flex;align-items:center;gap:5px;padding:5px 13px;border-radius:20px;font-size:11.5px;font-weight:700;letter-spacing:.2px}
+.b-green{background:var(--gdim);border:1px solid rgba(24,224,112,.16);color:var(--green)}
+.b-blue{background:var(--adim);border:1px solid rgba(26,107,255,.2);color:var(--accent2)}
+
+/* Card */
+.card{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rl);padding:26px;margin-bottom:14px}
+
+/* Features */
+.feats{display:flex;flex-direction:column;gap:14px;margin-bottom:24px}
+.feat{display:flex;align-items:flex-start;gap:13px;font-size:14px;line-height:1.45}
+.ficon{width:33px;height:33px;border-radius:9px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;margin-top:1px}
+.fi-b{background:var(--adim)}.fi-g{background:var(--gdim)}
+.feat strong{display:block;font-weight:700;color:var(--t1);margin-bottom:2px;font-size:14px}
+.feat span{color:var(--t2);font-size:13px}
+
+hr{border:none;border-top:1px solid var(--b1);margin:22px 0}
+
+/* Inputs */
+label{display:block;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--t3);margin-bottom:7px;margin-top:18px}
+label:first-of-type{margin-top:0}
+input{
+  width:100%;padding:13px 15px;background:var(--s2);border:1.5px solid var(--b1);
+  border-radius:var(--r);color:var(--t1);
+  font-family:'DM Sans',sans-serif;font-size:15px;
+  outline:none;transition:border-color .15s,box-shadow .15s;-webkit-appearance:none;
+}
+input::placeholder{color:var(--t3);opacity:.55}
+input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--aglow)}
+input.err{border-color:var(--red);box-shadow:0 0 0 3px rgba(255,68,68,.10)}
+.row2{display:flex;gap:10px}
+.row2>div{flex:1;min-width:0}
+.errtxt{font-size:12px;color:var(--red);margin-top:5px;display:none}
+.errtxt.on{display:block}
+
+/* Tiers */
+.tiers{display:flex;gap:8px;margin-top:18px}
+.tier{
+  flex:1;padding:13px 8px;background:var(--s2);border:1.5px solid var(--b1);
+  border-radius:var(--r);color:var(--t1);font-family:'DM Sans',sans-serif;
+  cursor:pointer;text-align:center;transition:all .15s;line-height:1.3;
+}
+.tier .tp{font-size:20px;font-weight:800;letter-spacing:-.5px}
+.tier .td{font-size:11px;color:var(--t3);font-weight:500;margin-top:3px}
+.tier.on{border-color:var(--accent);background:var(--adim);box-shadow:0 0 0 1px rgba(26,107,255,.12)}
+.tier.on .td{color:var(--accent2)}
+
+/* Buttons */
+.btn{
+  display:block;width:100%;padding:16px;border:none;border-radius:var(--r);
+  font-family:'DM Sans',sans-serif;font-size:15.5px;font-weight:700;
+  cursor:pointer;text-align:center;text-decoration:none;
+  transition:opacity .15s,transform .1s,box-shadow .15s;letter-spacing:.1px;
+}
+.btn:active{transform:scale(.985)}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn-blue{
+  background:linear-gradient(135deg,#1558dd 0%,#1a6bff 50%,#3d8bff 100%);color:#fff;margin-top:20px;
+  box-shadow:0 4px 28px rgba(26,107,255,.35),0 1px 0 rgba(255,255,255,.08) inset;
+}
+.btn-blue:hover:not(:disabled){opacity:.92;box-shadow:0 6px 36px rgba(26,107,255,.48)}
+.btn-green{background:linear-gradient(135deg,#0db857 0%,#18e070 100%);color:#021208;margin-top:16px;box-shadow:0 4px 22px rgba(24,224,112,.22);font-size:15px}
+.btn-green:hover{opacity:.9}
+.btn-ghost{
+  display:block;width:100%;padding:13px;background:transparent;color:var(--t3);
+  border:1.5px solid var(--b1);border-radius:var(--r);
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;
+  cursor:pointer;text-align:center;text-decoration:none;
+  margin-top:10px;transition:all .15s;
+}
+.btn-ghost:hover{border-color:var(--b2);color:var(--t2)}
+.btn-paypal{
+  display:block;width:100%;padding:14px;border:none;border-radius:var(--r);
+  background:#FFC439;color:#003087;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:800;
+  cursor:pointer;text-align:center;text-decoration:none;
+  margin-top:10px;transition:opacity .15s;letter-spacing:.1px;
+}
+.btn-paypal:hover{opacity:.9}
+
+/* Fine print */
+.fine{font-size:12px;color:var(--t3);text-align:center;margin-top:14px;line-height:1.75}
+.fine a{color:var(--accent2);text-decoration:none}
+.fine a:hover{text-decoration:underline}
+
+/* Privacy card */
+.priv-card{background:var(--s1);border:1px solid var(--b1);border-radius:var(--rl);padding:20px 22px;margin-bottom:14px}
+.priv-card h3{font-size:13px;font-weight:700;margin-bottom:8px;color:var(--green)}
+.priv-card p{font-size:13px;color:var(--t2);line-height:1.72}
+
+.hidden{display:none!important}
+
+/* Dashboard */
+.status{
+  padding:14px 16px;border-radius:var(--r);font-weight:600;font-size:14px;
+  margin-bottom:22px;display:flex;align-items:center;gap:8px;
+}
+.s-paid{background:var(--gdim);color:var(--green);border:1px solid rgba(24,224,112,.18)}
+.s-free{background:rgba(240,165,0,.08);color:var(--amber);border:1px solid rgba(240,165,0,.18)}
+
+.prev-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.9px;color:var(--t3);margin-bottom:8px}
+.prev-box{
+  background:var(--bg2);border:1px solid var(--b1);border-radius:var(--r);
+  padding:14px 16px;font-family:'DM Mono',monospace;font-size:12px;
+  color:var(--t2);line-height:1.9;white-space:pre-wrap;word-break:break-word;margin-bottom:10px;
+}
+.cpbtn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:var(--s2);border:1.5px solid var(--b1);border-radius:8px;
+  padding:7px 14px;cursor:pointer;font-size:12px;font-weight:600;color:var(--t3);
+  font-family:'DM Sans',sans-serif;transition:all .15s;
+}
+.cpbtn:hover{border-color:var(--accent);color:var(--accent2)}
+.cpbtn.ok{border-color:var(--green);color:var(--green)}
+
+/* Steps */
+.step{
+  background:var(--s2);border:1px solid var(--b1);border-radius:var(--r);
+  padding:15px 17px;margin-bottom:10px;display:flex;gap:14px;align-items:flex-start;
+}
+.sn{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  background:var(--adim);border:1px solid rgba(26,107,255,.22);
+  color:var(--accent2);font-family:'DM Mono',monospace;font-size:12px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+}
+.step h3{font-size:14px;font-weight:700;margin-bottom:3px;color:var(--t1)}
+.step p{font-size:13px;color:var(--t2);line-height:1.55}
+
+/* Support section */
+.support-card{background:var(--s1);border:1.5px solid rgba(240,165,0,.2);border-radius:var(--rl);padding:22px;margin-bottom:14px}
+.support-card h3{font-size:14px;font-weight:700;color:var(--amber);margin-bottom:6px}
+.support-card p{font-size:13px;color:var(--t2);line-height:1.6;margin-bottom:16px}
+.pay-row{display:flex;gap:10px;margin-bottom:8px}
+.pay-row .btn-green,.pay-row .btn-paypal{margin-top:0;flex:1}
+.pay-divider{font-size:11px;color:var(--t3);text-align:center;margin:4px 0 8px;letter-spacing:.05em}
+
+/* Spinner */
+.spin{display:inline-block;width:15px;height:15px;border:2px solid rgba(255,255,255,.2);border-top-color:#fff;border-radius:50%;animation:sp .65s linear infinite;vertical-align:middle;margin-right:7px}
+@keyframes sp{to{transform:rotate(360deg)}}
+
+/* Glow line */
+.glow-line{height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.3;margin:0 0 28px;border:none}
+
+/* Footer */
+footer{text-align:center;margin-top:32px;font-size:12px;color:var(--t3);line-height:1.9}
+footer a{color:var(--t3);text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<!-- ━━━━━━━━━━━━━ SETUP VIEW ━━━━━━━━━━━━━ -->
+<div id="setup">
+
+<div class="logo-wrap">
+  <div class="logo-svg">🛡️</div>
+</div>
+
+<div class="hero">
+  <h1>Opt Your Plate Out of<br>Flock Safety Tracking</h1>
+  <p>We write your CCPA deletion request, pre-addressed to Flock Safety's compliance team. Open your mail app, hit send. Done in 60 seconds.</p>
+</div>
+
+<div class="badges">
+  <span class="badge b-green">🔒 Zero data stored — ever</span>
+  <span class="badge b-blue">⚡ Ready in 60 seconds</span>
+  <span class="badge b-blue">🆓 Always free option</span>
+</div>
+
+<div class="card">
+  <div class="feats">
+    <div class="feat">
+      <div class="ficon fi-b">✉️</div>
+      <div>
+        <strong>Pre-filled Legal Email</strong>
+        <span>CCPA/CPRA-compliant deletion request with your plate, state &amp; name already written in — correct legal citations included.</span>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="ficon fi-b">📱</div>
+      <div>
+        <strong>One-Tap Send via Native Mail</strong>
+        <span>Opens your phone's mail app with everything ready. Nothing to copy or retype.</span>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="ficon fi-g">🔒</div>
+      <div>
+        <strong>Your Data Never Leaves Your Device</strong>
+        <span>All processing happens entirely in your browser. We store nothing — not your name, plate, or email. Ever.</span>
+      </div>
+    </div>
+    <div class="feat">
+      <div class="ficon fi-g">📋</div>
+      <div>
+        <strong>Copy-to-Clipboard Backup</strong>
+        <span>Mail app not cooperating? Copy the full email text and paste into any email client.</span>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <label>Your Email Address <span style="color:var(--red)">*</span></label>
+  <input type="email" id="email" placeholder="you@email.com" autocomplete="email" inputmode="email">
+  <div class="errtxt" id="e-email">Please enter a valid email address.</div>
+
+  <div class="row2">
+    <div>
+      <label>License Plate <span style="color:var(--red)">*</span></label>
+      <input type="text" id="plate" placeholder="ABC1234" maxlength="8" autocomplete="off" spellcheck="false">
+      <div class="errtxt" id="e-plate">Plate number required.</div>
+    </div>
+    <div>
+      <label>State <span style="color:var(--red)">*</span></label>
+      <input type="text" id="state" placeholder="UT" maxlength="2" autocomplete="off" spellcheck="false">
+      <div class="errtxt" id="e-state">2-letter state required.</div>
+    </div>
+  </div>
+
+  <label>Registered Owner Full Name <span style="color:var(--red)">*</span></label>
+  <input type="text" id="owner" placeholder="Name as it appears on registration" autocomplete="name">
+  <div class="errtxt" id="e-owner">Full name required.</div>
+
+  <hr>
+
+  <p style="font-size:13px;color:var(--t2);line-height:1.65;margin-bottom:14px">
+    <strong style="color:var(--t1)">The DIY option is completely free — always.</strong>
+    Paid options add a convenience tip to support the service and include an email receipt.
+  </p>
+
+  <div class="tiers">
+    <button class="tier" id="t-free" onclick="setTier('free')">
+      <div class="tp">Free</div>
+      <div class="td">DIY · No charge</div>
+    </button>
+    <button class="tier on" id="t-one" onclick="setTier('1.00')">
+      <div class="tp">$1</div>
+      <div class="td">Tip · One-time</div>
+    </button>
+    <button class="tier" id="t-five" onclick="setTier('5.00')">
+      <div class="tp">$5<span style="font-size:11px">/mo</span></div>
+      <div class="td">Subscriber shield</div>
+    </button>
+  </div>
+
+  <button class="btn btn-blue" id="main-btn" onclick="go()">
+    Build My Opt-Out Email →
+  </button>
+
+  <p class="fine">
+    We generate a ready-to-send email. <strong style="color:var(--t1)">You send it.</strong>
+    Flock Safety's compliance team processes the deletion request — not us.<br><br>
+    <a href="#privacy">Privacy policy</a> &nbsp;·&nbsp;
+    <a href="mailto:hello@flockblock.pro">Contact</a> &nbsp;·&nbsp;
+    <a href="https://flockblock.pro">flockblock.pro</a>
+  </p>
+</div>
+
+<div class="priv-card" id="privacy">
+  <h3>🔒 Our Privacy Commitment</h3>
+  <p>FlockBlock.Pro collects <strong style="color:var(--t1)">zero personal data.</strong>
+  Your name, plate, state, and email are used only to assemble your opt-out email — entirely inside your browser.
+  Nothing is ever transmitted to our servers. We have no user database and no analytics tracking of personal information.
+  Optional tips processed securely by Stripe or PayPal — we never see or store your card details.</p>
+</div>
+
+</div><!-- /setup -->
+
+
+<!-- ━━━━━━━━━━━━━ DASHBOARD VIEW ━━━━━━━━━━━━━ -->
+<div id="dash" class="hidden">
+
+<div class="logo-wrap">
+  <div class="logo-svg" style="width:82px;height:82px;border-radius:16px;font-size:42px">🛡️</div>
+</div>
+
+<hr class="glow-line">
+
+<div id="sbanner" class="status"></div>
+
+<div class="card">
+  <p style="font-size:15px;font-weight:700;margin-bottom:5px">Your opt-out email is ready.</p>
+  <p style="font-size:13px;color:var(--t2);line-height:1.55;margin-bottom:18px">
+    Addressed to <strong style="color:var(--t1)">privacy@flocksafety.com</strong> —
+    review the text below, then open your mail app and send.
+  </p>
+  <div class="prev-label">Email Preview</div>
+  <div class="prev-box" id="prev"></div>
+  <button class="cpbtn" id="cpbtn" onclick="doCopy()">📋 Copy to clipboard</button>
+  <a id="mlink" href="#" class="btn btn-green" onclick="trackMailOpen()">📧 Open in Mail App &amp; Send</a>
+</div>
+
+<!-- ━━ Optional support / payment ━━ -->
+<div class="support-card" id="support-section">
+  <h3>💛 Support This Free Tool</h3>
+  <p>FlockBlock.Pro is free to use, always. If it saved you time, consider leaving a small tip — it helps keep the service running and ad-free.</p>
+
+  <!-- $1 one-time tip -->
+  <div style="margin-bottom:14px">
+    <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);margin-bottom:8px">$1 — One-time tip</p>
+    <div class="pay-row">
+      <!--
+        STRIPE: Replace the href below with your Stripe Payment Link for $1
+        Get it at: dashboard.stripe.com → Payment Links → Create
+      -->
+      <a href="https://buy.stripe.com/TODO_REPLACE_1DOLLAR"
+         target="_blank" rel="noopener"
+         class="btn btn-green"
+         onclick="trackPayment('stripe','1.00')">
+        💳 Pay $1 via Stripe
+      </a>
+      <!--
+        PAYPAL: Replace the href below with your PayPal.me link or PayPal button URL
+        Get it at: paypal.com/paypalme or paypal.com/buttons
+      -->
+      <a href="https://www.paypal.com/paypalme/TODO_REPLACE/1"
+         target="_blank" rel="noopener"
+         class="btn-paypal"
+         onclick="trackPayment('paypal','1.00')">
+        🅿️ Pay $1 via PayPal
+      </a>
+    </div>
+  </div>
+
+  <!-- $5/mo subscription -->
+  <div>
+    <p style="font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.8px;color:var(--t3);margin-bottom:8px">$5/mo — Subscriber shield (opt out new plates anytime)</p>
+    <div class="pay-row">
+      <!--
+        STRIPE SUBSCRIPTION: Replace with your Stripe Payment Link for $5/month
+        Create a recurring price at: dashboard.stripe.com → Payment Links → Create → Recurring
+      -->
+      <a href="https://buy.stripe.com/TODO_REPLACE_5MONTHLY"
+         target="_blank" rel="noopener"
+         class="btn btn-green"
+         onclick="trackPayment('stripe','5.00/mo')">
+        💳 Subscribe $5/mo
+      </a>
+      <!--
+        PAYPAL SUBSCRIPTION: Replace with your PayPal subscription button URL
+        Create at: paypal.com/buttons → Subscription
+      -->
+      <a href="https://www.paypal.com/TODO_REPLACE_SUBSCRIPTION"
+         target="_blank" rel="noopener"
+         class="btn-paypal"
+         onclick="trackPayment('paypal','5.00/mo')">
+        🅿️ Subscribe $5/mo
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Steps -->
+<div class="step">
+  <div class="sn">1</div>
+  <div>
+    <h3>Tap "Open in Mail App"</h3>
+    <p>Your native mail app opens with the To address, Subject, and full body already filled in.</p>
+  </div>
+</div>
+<div class="step">
+  <div class="sn">2</div>
+  <div>
+    <h3>Review &amp; Hit Send</h3>
+    <p>Confirm your plate and name are correct, then tap send. Takes 10 seconds.</p>
+  </div>
+</div>
+<div class="step">
+  <div class="sn">3</div>
+  <div>
+    <h3>Save Your Sent Receipt</h3>
+    <p>Screenshot your sent timestamp or forward to yourself. Under CCPA, Flock Safety must respond within <strong>45 days.</strong></p>
+  </div>
+</div>
+<div class="step">
+  <div class="sn">4</div>
+  <div>
+    <h3>No Reply After 10 Business Days?</h3>
+    <p>Send a follow-up citing your original send date and Cal. Civ. Code §1798.105. They are legally required to respond.</p>
+  </div>
+</div>
+
+<p class="fine" style="margin-top:22px">
+  Flock Safety's privacy team handles the deletion. Questions?
+  <a href="mailto:hello@flockblock.pro">hello@flockblock.pro</a><br><br>
+  <a href="/" style="color:var(--accent2)">← Opt out another plate</a>
+</p>
+
+</div><!-- /dash -->
+
+<!-- ━━━━━━━━━━━━━ FOOTER ━━━━━━━━━━━━━ -->
+<!-- ══════════════════════════════════════
+     COPYRIGHT: Replace [Partner Name] with your partner's name before launch
+     Example: © 2025 KBC & Jane Smith — All rights reserved
+     ══════════════════════════════════════ -->
+<footer>
+  flockblock.pro &nbsp;·&nbsp; Zero data stored &nbsp;·&nbsp;
+  <a href="mailto:hello@flockblock.pro">hello@flockblock.pro</a><br>
+  © 2025 KBC &amp; [Partner Name] — All rights reserved
+</footer>
+
+</div><!-- /wrap -->
+
+<script>
+/* ══════════════════════════════════════
+   FUNNEL EVENT TRACKING
+   These events appear in Google Analytics 4 under:
+   Reports → Engagement → Events
+   And in Microsoft Clarity under:
+   Recordings (see exactly where each user dropped off)
+   ══════════════════════════════════════ */
+var _formStarted = false;
+
+function track(eventName, params) {
+  try {
+    // Google Analytics 4
+    if (typeof gtag === 'function') {
+      gtag('event', eventName, params || {});
+    }
+    // Microsoft Clarity custom tags
+    if (typeof clarity === 'function') {
+      clarity('event', eventName);
+    }
+  } catch(e) {}
+}
+
+/* Track when user starts filling the form */
+['email','plate','state','owner'].forEach(function(id) {
+  document.getElementById(id).addEventListener('focus', function() {
+    if (!_formStarted) {
+      _formStarted = true;
+      track('form_started');
+    }
+  });
+});
+
+/* ══════════════════════════════════════
+   TIER SELECTION
+   ══════════════════════════════════════ */
+var tier = '1.00';
+
+function setTier(t) {
+  tier = t;
+  ['t-free','t-one','t-five'].forEach(function(id) {
+    document.getElementById(id).classList.remove('on');
+  });
+  var map = {'free':'t-free','1.00':'t-one','5.00':'t-five'};
+  document.getElementById(map[t]).classList.add('on');
+  track('tier_selected', {tier: t});
+}
+
+/* ══════════════════════════════════════
+   FORM VALIDATION
+   ══════════════════════════════════════ */
+function val() {
+  var ok = true;
+  var rules = [
+    {id:'email',eid:'e-email',test:function(v){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);}},
+    {id:'plate',eid:'e-plate',test:function(v){return v.length>0;}},
+    {id:'state',eid:'e-state',test:function(v){return v.length===2;}},
+    {id:'owner',eid:'e-owner',test:function(v){return v.trim().length>=2;}},
+  ];
+  rules.forEach(function(r) {
+    var el = document.getElementById(r.id);
+    var ee = document.getElementById(r.eid);
+    var v = (el.value || '').trim();
+    if (!r.test(v)) { el.classList.add('err'); ee.classList.add('on'); ok = false; }
+    else { el.classList.remove('err'); ee.classList.remove('on'); }
+  });
+  if (!ok) track('form_validation_failed');
+  return ok;
+}
+
+['email','plate','state','owner'].forEach(function(id) {
+  document.getElementById(id).addEventListener('input', function() {
+    this.classList.remove('err');
+    var e = document.getElementById('e-'+id);
+    if (e) e.classList.remove('on');
+  });
+});
+
+['plate','state'].forEach(function(id) {
+  document.getElementById(id).addEventListener('input', function() {
+    var p = this.selectionStart;
+    this.value = this.value.toUpperCase();
+    this.setSelectionRange(p, p);
+  });
+});
+
+/* ══════════════════════════════════════
+   EMAIL BUILDER
+   ══════════════════════════════════════ */
+function mkEmail(name, plate, state) {
+  return 'To the Privacy Compliance Team,\n\n'
+    +'I am formally exercising my consumer privacy rights under the California Consumer '
+    +'Privacy Act (CCPA/CPRA) and applicable state privacy laws, including Cal. Civ. Code \u00a71798.105.\n\n'
+    +'I request the immediate and complete deletion of all personal information associated with '
+    +'my vehicle from all Flock Safety systems, including:\n\n'
+    +'  \u2022 License plate scan records\n'
+    +'  \u2022 Vehicle location data and timestamps\n'
+    +'  \u2022 Any associated metadata or behavioral inferences\n'
+    +'  \u2022 Data shared with or sold to any third parties\n\n'
+    +'Vehicle Details:\n'
+    +'  Name: '+name+'\n'
+    +'  License Plate: '+plate+' ('+state+')\n\n'
+    +'Please confirm receipt of this request and provide written confirmation of deletion within '
+    +'the timeframe required by law (45 days under CCPA, extendable by one additional 45-day period).\n\n'
+    +'Thank you.';
+}
+
+var _emailBody = '';
+
+function go() {
+  if (!val()) return;
+  var btn = document.getElementById('main-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spin"></span>Building your email\u2026';
+
+  var name  = document.getElementById('owner').value.trim();
+  var plate = document.getElementById('plate').value.trim().toUpperCase();
+  var state = document.getElementById('state').value.trim().toUpperCase();
+
+  _emailBody = mkEmail(name, plate, state);
+  var to   = 'privacy@flocksafety.com';
+  var subj = 'CCPA/CPRA Data Deletion Request \u2013 License Plate Opt-Out';
+
+  document.getElementById('prev').textContent = 'To: '+to+'\nSubject: '+subj+'\n\n'+_emailBody;
+  document.getElementById('mlink').href =
+    'mailto:'+to+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(_emailBody);
+
+  var banner = document.getElementById('sbanner');
+  if (tier === 'free') {
+    banner.className = 'status s-free';
+    banner.innerHTML = '\uD83D\uDCCB Free mode \u2014 your email is ready below.';
+    document.getElementById('support-section').style.display = 'block';
+  } else {
+    banner.className = 'status s-paid';
+    banner.innerHTML = '\u2713 Email built \u2014 support this service with a $'+tier+' tip below.';
+    document.getElementById('support-section').style.display = 'block';
+  }
+
+  /* ── Funnel event: email generated ── */
+  track('email_generated', {tier: tier});
+
+  setTimeout(function() {
+    document.getElementById('setup').classList.add('hidden');
+    document.getElementById('dash').classList.remove('hidden');
+    window.scrollTo({top:0,behavior:'smooth'});
+    btn.disabled = false;
+    btn.innerHTML = 'Build My Opt-Out Email \u2192';
+  }, 320);
+}
+
+/* ── Track mail app open ── */
+function trackMailOpen() {
+  track('mail_app_opened', {tier: tier});
+}
+
+/* ── Track clipboard copy ── */
+function doCopy() {
+  var text = document.getElementById('prev').textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    var b = document.getElementById('cpbtn');
+    b.textContent = '\u2713 Copied!';
+    b.classList.add('ok');
+    track('email_copied', {tier: tier});
+    setTimeout(function() {
+      b.textContent = '\uD83D\uDCCB Copy to clipboard';
+      b.classList.remove('ok');
+    }, 2200);
+  });
+}
+
+/* ── Track payment clicks (shows up in GA4 and Stripe separately) ── */
+function trackPayment(processor, amount) {
+  track('payment_initiated', {processor: processor, amount: amount, tier: tier});
+  return true; // allow href to fire
+}
+</script>
+</body>
+</html>
